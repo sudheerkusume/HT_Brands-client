@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/HT_Brands-client/static/css/main.61551007.css",
+    "main.js": "/HT_Brands-client/static/js/main.56ebf3b0.js",
+    "static/js/488.42b0f5d9.chunk.js": "/HT_Brands-client/static/js/488.42b0f5d9.chunk.js",
+    "static/media/mainvideo.mp4": "/HT_Brands-client/static/media/mainvideo.9a987d81ecc608d2dba4.mp4",
+    "static/media/BrandPromoto.mp4": "/HT_Brands-client/static/media/BrandPromoto.1987f4c2913b3a162f48.mp4",
+    "static/media/404 error.gif": "/HT_Brands-client/static/media/404 error.eb331fc600938832276d.gif",
+    "static/media/illustration-person-addicted-social-media.png": "/HT_Brands-client/static/media/illustration-person-addicted-social-media.2d471924cd6bfd7559a0.png",
+    "static/media/small (1).mp4": "/HT_Brands-client/static/media/small (1).8a611073db018e3cae71.mp4",
+    "static/media/BigBanner.webp": "/HT_Brands-client/static/media/BigBanner.d00581cf67a2996149af.webp",
+    "static/media/mainbanner4.webp": "/HT_Brands-client/static/media/mainbanner4.35d793b83684637cb5ed.webp",
+    "static/media/image4.webp": "/HT_Brands-client/static/media/image4.f6ef4df6e979821331dd.webp",
+    "static/media/image1.webp": "/HT_Brands-client/static/media/image1.89d25f155ba7efb0c81d.webp",
+    "static/media/ht logo1.PNG": "/HT_Brands-client/static/media/ht logo1.4a8f850d4cd29ae2b704.PNG",
+    "static/media/image3.webp": "/HT_Brands-client/static/media/image3.1c51c54c64ede3b1bf17.webp",
+    "static/media/image5.webp": "/HT_Brands-client/static/media/image5.075be39269586df2bbfd.webp",
+    "index.html": "/HT_Brands-client/index.html",
+    "main.61551007.css.map": "/HT_Brands-client/static/css/main.61551007.css.map",
+    "main.56ebf3b0.js.map": "/HT_Brands-client/static/js/main.56ebf3b0.js.map",
+    "488.42b0f5d9.chunk.js.map": "/HT_Brands-client/static/js/488.42b0f5d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.61551007.css",
+    "static/js/main.56ebf3b0.js"
+  ]
+}
