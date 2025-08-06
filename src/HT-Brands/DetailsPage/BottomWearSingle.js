@@ -1,0 +1,342 @@
+
+// import React, { useEffect, useState } from 'react';
+// import axios from 'axios';
+// import { useParams, Link } from 'react-router-dom';
+// import { FaHeart } from 'react-icons/fa';
+// import FeaturesRow from '../FeaturesRow';
+// import ShippingReturns from '../ShippingReturns';
+
+// const BottomwearSingle = () => {
+//   const { id } = useParams();
+//   const [product, setProduct] = useState(null);
+//   const [selectedImage, setSelectedImage] = useState(null);
+//   const [selectedSize, setSelectedSize] = useState(null);
+
+//   useEffect(() => {
+//     axios.get(`http://localhost:5000/Cargo/${id}`)
+//       .then((res) => {
+//         setProduct(res.data);
+//         setSelectedImage(res.data.Album?.[0]);
+//       })
+//       .catch((err) => console.error("Error fetching product:", err));
+//   }, [id]);
+
+//   if (!product) {
+//     return (
+//       <div className="d-flex justify-content-center align-items-center" style={{ height: '60vh' }}>
+//         <div className="spinner-border text-primary" />
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <div className="container py-5">
+//       <div className="row gx-5 gy-4">
+//         {/* Left Side */}
+//         <div className="col-lg-6">
+//           <div className="position-sticky" style={{ top: '100px' }}>
+//             <div className="d-flex">
+//               {/* Thumbnails */}
+//               <div className="d-flex flex-column gap-2 me-3">
+//                 {product.Album?.map((img, idx) => (
+//                   <img
+//                     key={idx}
+//                     src={img}
+//                     alt={`thumb-${idx}`}
+//                     onClick={() => setSelectedImage(img)}
+//                     className={`img-thumbnail p-1 ${selectedImage === img ? 'border-primary' : ''}`}
+//                     style={{ width: 70, height: 70, objectFit: 'cover', cursor: 'pointer' }}
+//                   />
+//                 ))}
+//               </div>
+
+//               {/* Main Image */}
+//               <div className="flex-grow-1 d-flex justify-content-center align-items-center border rounded" style={{ minHeight: '500px' }}>
+//                 <img
+//                   src={selectedImage}
+//                   alt={product.Title}
+//                   className="img-fluid"
+//                   style={{ maxHeight: '480px', objectFit: 'contain' }}
+//                 />
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Right Side */}
+//         <div className="col-lg-6">
+//           <h3 className="fw-semibold">{product.Title}</h3>
+//           <h4 className="text-danger mb-1">₹{product.Offer}</h4>
+//           <span style={{ textDecoration: 'line-through', color: '#6c757d', fontSize: '1rem' }}>
+//                ₹{product.Tariff}
+//           </span>
+//           <div className='mt-3'>
+//           <div className="mb-3 d-flex align-items-center">
+//             <FaHeart className="text-danger me-2" style={{ cursor: 'pointer' }} />
+//             <span>Add to Wishlist</span>
+//           </div>
+
+//           </div>
+//            <span style={{fontWeight:530}}>Fit</span>:
+//           <div className="mb-3 d-flex align-items-center">
+//             {product.Features}
+//           </div>
+
+//           <div className="mb-3 d-flex align-items-center">
+//             <span style={{fontWeight:530}}></span> {product.Features1}
+//           </div>
+
+//           <div className="mb-3 d-flex align-items-center">
+//             <span style={{fontWeight:530}}>Color</span>: {product.Color}
+//           </div>
+
+
+
+//           {/* Size Selection */}
+//           <div className="mb-4">
+//             <label className="form-label fw-bold">Select Size:</label>
+//             <div className="d-flex flex-wrap gap-2">
+//               {product.Size?.split(',').map((size) => (
+//                 <button
+//                   key={size}
+//                   className={`btn btn-outline-dark btn-sm ${selectedSize === size ? 'active' : ''}`}
+//                   onClick={() => setSelectedSize(size)}
+//                 >
+//                   {size.trim()}
+//                 </button>
+//               ))}
+//             </div>
+//           </div>
+
+//           {/* Style Tips */}
+//           <div className="mb-4">
+//             <h6 className="fw-bold">Style Tips:</h6>
+//             <p className="text-muted mb-1">* {product.StyleTips}</p>
+//             <p className="text-muted">* {product.StyleTips1}</p>
+//             <p className="text-muted">* {product.StyleTips2}</p>
+//           </div>
+
+//           {/* Wash Care */}
+//           <div className="mb-4">
+//             <h6 className="fw-bold">Wash Care:</h6>
+//             <ul className="text-muted ps-3 mb-0">
+//               <li>{product.WashCare}</li>
+//               <li>{product.WashCare2}</li>
+//               <li>{product.WashCare3}</li>
+//             </ul>
+//           </div>
+
+//           {/* Buttons */}
+//           <div className="d-flex gap-3 mb-4">
+//             <button className="btn btn-dark px-4">Add to Cart</button>
+//             <button className="btn btn-outline-primary px-4">Buy it Now</button>
+//           </div>
+
+//           <div className="product-right-section pt-2">
+//             <FeaturesRow />
+//           </div>
+//           <div className="pb-2">
+//             <ShippingReturns />
+//           </div>
+
+//           <Link to="/Shirts" className="text-decoration-none text-secondary">
+//             ← Back to Shirts
+//           </Link>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default BottomwearSingle;
+
+import React, { useEffect, useState, useContext } from 'react';
+import axios from 'axios';
+import { useParams, Link } from 'react-router-dom';
+import { FaHeart } from 'react-icons/fa';
+import FeaturesRow from '../FeaturesRow';
+import ShippingReturns from '../ShippingReturns';
+import { useCart } from '../context/CartContext';
+import { useWishlist } from '../context/WishlistContext';
+import { toast } from 'react-toastify';
+import { loginStatus } from '../../App';
+import 'react-toastify/dist/ReactToastify.css';
+
+const BottomwearSingle = () => {
+  const { id } = useParams();
+  const [product, setProduct] = useState(null);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+
+  const { addToCart } = useCart();
+  const { addToWishlist } = useWishlist();
+  const { token } = useContext(loginStatus); // Get token from context
+
+  useEffect(() => {
+    axios
+      .get(`https://htbrands-server.onrender.com/Cargo/${id}`)
+      .then((res) => {
+        setProduct(res.data);
+        setSelectedImage(res.data.Album?.[0]);
+      })
+      .catch((err) => console.error('Error fetching product:', err));
+  }, [id]);
+
+  const handleAddToCart = () => {
+    if (!selectedSize) {
+      toast.error('Please select a size!');
+      return;
+    }
+
+    const cartItem = {
+      id: product._id,
+      title: product.Title,
+      image: selectedImage,
+      price: parseFloat(product.Offer.toString().replace(/,/g, "")), 
+      size: selectedSize,
+      quantity: 1,
+    };
+
+    console.log("🛒 Sending product to addToCart:", cartItem);
+    addToCart(cartItem, token); // Pass token for backend persistence
+    toast.success('Added to cart!');
+  };
+
+  if (!product) {
+    return (
+      <div className="d-flex justify-content-center align-items-center" style={{ height: '60vh' }}>
+        <div className="spinner-border text-primary" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="container py-5">
+      <div className="row gx-5 gy-4">
+        {/* Left Section */}
+        <div className="col-lg-6">
+          <div className="position-sticky" style={{ top: '100px' }}>
+            <div className="d-flex">
+              {/* Thumbnails */}
+              <div className="d-flex flex-column gap-2 me-3">
+                {product.Album?.map((img, idx) => (
+                  <img
+                    key={idx}
+                    src={img}
+                    alt={`thumb-${idx}`}
+                    onClick={() => setSelectedImage(img)}
+                    className={`img-thumbnail p-1 ${selectedImage === img ? 'border-primary' : ''}`}
+                    style={{ width: 70, height: 70, objectFit: 'cover', cursor: 'pointer' }}
+                  />
+                ))}
+              </div>
+
+              {/* Main Image */}
+              <div className="flex-grow-1 d-flex justify-content-center align-items-center border rounded" style={{ minHeight: '500px' }}>
+                <img
+                  src={selectedImage}
+                  alt={product.Title}
+                  className="img-fluid"
+                  style={{ maxHeight: '480px', objectFit: 'contain' }}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Section */}
+        <div className="col-lg-6">
+          <h3 className="fw-semibold">{product.Title}</h3>
+          <p className="text-muted">{product.Features2}</p>
+          <h4 className="text-danger mb-1">₹{product.Offer}</h4>
+          <span className="text-muted text-decoration-line-through">₹{product.Tariff}</span>
+
+          {/* Wishlist */}
+          <div className="mb-3 d-flex align-items-center">
+            <FaHeart
+              className="text-danger me-2"
+              style={{ cursor: 'pointer' }}
+              onClick={() => {
+                const wishItem = {
+                  id: product._id,
+                  title: product.Title,
+                  image: selectedImage,
+                  price: product.Offer,
+                };
+                addToWishlist(wishItem);
+                toast.success('Added to wishlist!');
+              }}
+            />
+            <span>Add to Wishlist</span>
+          </div>
+
+          {/* Fit */}
+          <div className="mb-2">
+            <strong>Fit:</strong> {product.Features}
+          </div>
+
+          {/* Fabric */}
+          <div className="mb-2">
+            <strong>Fabric:</strong> {product.Features1}
+          </div>
+
+          {/* Color */}
+          <div className="mb-3">
+            <strong>Color:</strong> {product.Color}
+          </div>
+
+          {/* Size Selection */}
+          <div className="mb-4">
+            <label className="form-label fw-bold">Select Size:</label>
+            <div className="d-flex flex-wrap gap-2">
+              {product.Size?.split(',').map((size) => (
+                <button
+                  key={size}
+                  className={`btn btn-outline-dark btn-sm ${selectedSize === size ? 'active' : ''}`}
+                  onClick={() => setSelectedSize(size)}
+                >
+                  {size.trim()}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Style Tips */}
+          <div className="mb-4">
+            <h6 className="fw-bold">Style Tips:</h6>
+            <p className="text-muted mb-1">* {product.StyleTips}</p>
+            <p className="text-muted">* {product.StyleTips1}</p>
+            <p className="text-muted">* {product.StyleTips2}</p>
+          </div>
+
+          {/* Wash Care */}
+          <div className="mb-4">
+            <h6 className="fw-bold">Wash Care:</h6>
+            <ul className="text-muted ps-3 mb-0">
+              <li>{product.WashCare}</li>
+              <li>{product.WashCare2}</li>
+              <li>{product.WashCare3}</li>
+            </ul>
+          </div>
+
+          {/* Buttons */}
+          <div className="d-flex gap-3 mb-4">
+            <button className="btn btn-dark px-4" onClick={handleAddToCart}>
+              Add to Cart
+            </button>
+            <button className="btn btn-outline-primary px-4">Buy it Now</button>
+          </div>
+
+          <FeaturesRow />
+          <ShippingReturns />
+
+          <Link to="/Bottomwear" className="text-decoration-none text-secondary">
+            ← Back to Best Sellers
+          </Link>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default BottomwearSingle;

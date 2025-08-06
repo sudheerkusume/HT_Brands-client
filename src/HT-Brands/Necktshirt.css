@@ -1,0 +1,201 @@
+/* .necktshirt-wrapper {
+  padding: 1rem;
+}
+
+.necktshirt-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.necktshirt-header h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.necktshirt-header p {
+  color: #007bff;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.necktshirt-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .necktshirt-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .necktshirt-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.necktshirt-card {
+  background: #fff;
+  border: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+}
+
+.necktshirt-card .card-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.necktshirt-card .main-img,
+.necktshirt-card .hover-img {
+  width: 100%;
+  transition: opacity 0.3s ease-in-out;
+  display: block;
+}
+
+.necktshirt-card .hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.necktshirt-card:hover .hover-img {
+  opacity: 1;
+}
+
+.necktshirt-card .quick-view-btn {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border: none;
+  border-radius: 3px;
+  display: none;
+}
+
+.necktshirt-card:hover .quick-view-btn {
+  display: block;
+}
+
+.necktshirt-card .product-title {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  font-weight: 500;
+}
+
+.price-section {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.offer-price {
+  color: #e53935;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.stock-indicator {
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+  font-size: 0.75rem;
+  color: #555;
+}
+
+.stock-dot {
+  width: 8px;
+  height: 8px;
+  background-color: green;
+  border-radius: 50%;
+  margin-right: 6px;
+} */
+
+.necktshirt-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  transition: transform 0.2s ease;
+  position: relative;
+}
+
+.card-img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.main-img,
+.hover-img {
+  width: 100%;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+.hover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
+
+.card-img-container:hover .hover-img {
+  opacity: 1;
+}
+
+.quick-view-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  background-color: #fff;
+  border: none;
+  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 4px;
+  display: none;
+}
+
+.card-img-container:hover .quick-view-btn {
+  display: block;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 11px;
+}
+
+.offer-price {
+  color: #e53935;
+  font-size: 11px;
+  margin-inline-start: 10px;
+}
+
+.stock-dot {
+  width: 8px;
+  height: 8px;
+  background-color: rgb(234, 118, 16);
+  display: inline-block;
+  border-radius: 50%;
+  
+}

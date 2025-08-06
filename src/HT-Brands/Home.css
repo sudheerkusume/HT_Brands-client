@@ -1,0 +1,58 @@
+/* Carousel image styling */
+.banner-img {
+  max-height: 90vh;
+  object-fit: cover;
+}
+
+/* Hide navigation arrows */
+.carousel-control-prev,
+.carousel-control-next {
+  display: none;
+}
+
+/* Auto scroll effect */
+.carousel-container .carousel {
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Ticker Styling */
+.stock-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  background: #f8f9fa;
+  padding: 10px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.stock-ticker ul {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerScroll 15s linear infinite;
+}
+.stock-ticker ul li {
+  display: inline;
+  margin-right: 60px;
+  font-weight: 500;
+  color: #222;
+}
+@keyframes tickerScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* Scroll navbar effect */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1050;
+  transition: background-color 0.3s ease;
+}
+.navbar.hidden {
+  transform: translateY(-100%);
+}
+.navbar.visible {
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(0%);
+}
