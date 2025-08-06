@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/HT_Brands-client/static/css/main.61551007.css",
-    "main.js": "/HT_Brands-client/static/js/main.56ebf3b0.js",
+    "main.js": "/HT_Brands-client/static/js/main.b9b0f038.js",
     "static/js/488.42b0f5d9.chunk.js": "/HT_Brands-client/static/js/488.42b0f5d9.chunk.js",
     "static/media/mainvideo.mp4": "/HT_Brands-client/static/media/mainvideo.9a987d81ecc608d2dba4.mp4",
     "static/media/BrandPromoto.mp4": "/HT_Brands-client/static/media/BrandPromoto.1987f4c2913b3a162f48.mp4",
@@ -17,11 +17,11 @@
     "static/media/image5.webp": "/HT_Brands-client/static/media/image5.075be39269586df2bbfd.webp",
     "index.html": "/HT_Brands-client/index.html",
     "main.61551007.css.map": "/HT_Brands-client/static/css/main.61551007.css.map",
-    "main.56ebf3b0.js.map": "/HT_Brands-client/static/js/main.56ebf3b0.js.map",
+    "main.b9b0f038.js.map": "/HT_Brands-client/static/js/main.b9b0f038.js.map",
     "488.42b0f5d9.chunk.js.map": "/HT_Brands-client/static/js/488.42b0f5d9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.61551007.css",
-    "static/js/main.56ebf3b0.js"
+    "static/js/main.b9b0f038.js"
   ]
 }
