@@ -37,7 +37,6 @@ useEffect(() => {
                 <input type='Text'  name='email' onChange={Changedata} placeholder='Email address' className='form-control mb-3'/>
                 <input type='password'  name='password' onChange={Changedata} placeholder='Password' className='form-control mb-3'/>
                 <input type='submit' className='form-control mb-3 btn btn-info'/>
-
             </form>
         </div>
     </div>
